@@ -19,12 +19,16 @@ Very basic! Really, for people who don't know pytest at all yet.
 
 @title[Me]
 
-![img](assets/images/skipper_action.png)
+
+![img](assets/images/portrait11.jpg)
 
 ## Bruno Oliveira
 
-![img](assets/images/github.png) `@nicoddemus`
-![img](assets/images/twitter.jpg) https://github.com/nicoddemus
+<span align="left">
+**GitHub:** https://github.com/nicoddemus
+<br>
+**Twitter:** `@nicoddemus`
+</span> 
 
 ---
 
