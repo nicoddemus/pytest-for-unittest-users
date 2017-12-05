@@ -33,8 +33,8 @@ https://github.com/nicoddemus/pytest-for-unittest-users
 Create a virtual environment:
 
 ```
-python3 -m venv .env
-source activate .env
+$ python3 -m venv .env
+$ source activate .env
 ```
 
 ---
@@ -42,7 +42,7 @@ source activate .env
 @title[Run it]
 
 ```
-python romantest7.py
+$ python romantest7.py
 ...........
 ----------------------------------------------------------------------
 Ran 11 tests in 0.027s
@@ -138,7 +138,7 @@ class RoundtripCheck(unittest.TestCase):
 
 @title[How pytest?]
 
-"How can I use pytest instead then?"
+"How can I use pytest?"
 
 
 ---
@@ -146,7 +146,7 @@ class RoundtripCheck(unittest.TestCase):
 @title[pip install]
 
 ```
-pip install pytest
+$ pip install pytest
 ```
 
 
@@ -155,7 +155,7 @@ pip install pytest
 @title[Run pytest]
 
 ```
-pytest romantest7.py
+$ pytest romantest7.py
 ======================== test session starts ========================
 platform win32 -- Python 3.6.3, pytest-3.3.0, py-1.5.2, pluggy-0.6.0
 rootdir: X:\pytest-for-unittest-users, inifile:
@@ -168,6 +168,150 @@ romantest7.py ...........                                      [100%]
 
 *Not pictured: colors!*
 
+
+---
+
+@title[Easy to start]
+
+### Easy to start
+
+* `pytest` can run `unittest`-based tests out of the box 99% of the time.
+* Use `pytest` as a runner and enjoy its features for new tests.
+* Convert old-tests to pytest-style as you go, at your own pace.
+
+
+---
+
+@title[pytest-style]
+
+### pytest-style, you say? 
+
+* You can use plain `assert` statements, no need to remember `self.assert*` functions;
+* Tests can be simple functions!
+
+
+---
+
+@title[Convert RoundtripCheck pt1]
+
+Let's convert `RoundtripCheck` then. 
+
+```python
+class RoundtripCheck(unittest.TestCase):
+    def test_roundtrip(self):
+        '''from_roman(to_roman(n))==n for all n'''
+        for integer in range(1, 4000):
+            numeral = roman7.to_roman(integer)
+            result = roman7.from_roman(numeral)
+            self.assertEqual(integer, result)
+```
+
+
+---
+
+@title[Convert RoundtripCheck pt2]
+
+**Get rid of the class (and self):** 
+
+```python
+def test_roundtrip(self):
+    '''from_roman(to_roman(n))==n for all n'''
+    for integer in range(1, 4000):
+        numeral = roman7.to_roman(integer)
+        result = roman7.from_roman(numeral)
+        self.assertEqual(integer, result)
+```  
+
+(You can have test methods in classes, you just don't *have* to)
+
+
+---
+
+@title[Convert RoundtripCheck pt3]
+
+**Change self.assertEqual to an assert** 
+
+```python
+def test_roundtrip():
+    '''from_roman(to_roman(n))==n for all n'''
+    for integer in range(1, 4000):
+        numeral = roman7.to_roman(integer)
+        result = roman7.from_roman(numeral)
+        assert integer == result
+```
+
+---
+
+@title[Convert RoundtripCheck pt4]
+
+**It still passes of course:** 
+
+```
+$ pytest romantest7.py
+======================== test session starts ========================
+platform win32 -- Python 3.6.3, pytest-3.3.0, py-1.5.2, pluggy-0.6.0
+rootdir: X:\pytest-for-unittest-users, inifile:
+collected 11 items
+
+romantest7.py ...........                                      [100%]
+
+===================== 11 passed in 0.06 seconds =====================
+```
+
+*Not pictured: colors!*
+
+---
+
+@title[Convert RoundtripCheck pt5]
+
+Notice that is perfectly fine to have mixed pytest-style tests and
+unittest-style tests in the same test suite.
+
+---
+
+@title[Wait, plain asserts?]
+
+What if an assertion fails?
+
+
+---
+
+@title[yes, plain asserts]
+
+If an assertion fails, you still get a nice error message:
+
+```python
+def test_roundtrip():
+    '''from_roman(to_roman(n))==n for all n'''
+    for integer in range(1, 4000):
+        numeral = roman7.to_roman(integer)
+        result = roman7.from_roman(numeral) + 1  # oh oh
+        assert integer == result
+```
+
+---
+
+@title[yes, plain asserts pt2]
+
+If an assertion fails, you still get a nice error message:
+
+```
+============================= FAILURES ==============================
+__________________________ test_roundtrip ___________________________
+
+    def test_roundtrip():
+        '''from_roman(to_roman(n))==n for all n'''
+        for integer in range(1, 4000):
+            numeral = roman7.to_roman(integer)
+            result = roman7.from_roman(numeral) + 1  # oh oh
+>           assert integer == result
+E           assert 1 == 2
+
+romantest7.py:124: AssertionError
+================ 1 failed, 10 passed in 0.06 seconds ================
+```
+
+*Not pictured: colors!*
 
 ---
 
