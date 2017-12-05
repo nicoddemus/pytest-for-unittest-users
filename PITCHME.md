@@ -13,7 +13,18 @@ Very basic! Really, for people who don't know pytest at all yet.
 * Dive Into Python 3: www.diveintopython3.net
 * Let's use `pytest` instead of `unittest` for the example on chapter 6.
 
-![img](https://docs.pytest.org/en/latest/_static/pytest1.png)
+![img](assets/images/pytest1.png)
+
+---
+
+@title[Me]
+
+![img](assets/images/skipper_action.png)
+
+## Bruno Oliveira
+
+![img](assets/images/github.png) `@nicoddemus`
+![img](assets/images/twitter.jpg) https://github.com/nicoddemus
 
 ---
 
@@ -50,3 +61,17 @@ OK
 ```
 
 All set!
+
+---
+
+`roman7.py`:
+
+```python
+def to_roman(n):
+    '''convert integer to Roman numeral'''
+    ...
+    
+def from_roman(s):
+    '''convert Roman numeral to integer'''
+    ...    
+```
