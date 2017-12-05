@@ -75,9 +75,6 @@ def from_roman(s):
 `romantest7.py::KnownValues`
 
 ```python
-import roman7
-import unittest
-
 class KnownValues(unittest.TestCase):
     known_values = ( (1, 'I'),
                      (2, 'II'),
@@ -89,12 +86,6 @@ class KnownValues(unittest.TestCase):
         for integer, numeral in self.known_values:
             result = roman7.to_roman(integer)
             self.assertEqual(numeral, result)
-
-    def test_from_roman_known_values(self):
-        '''from_roman should give known result with known input'''
-        for integer, numeral in self.known_values:
-            result = roman7.from_roman(numeral)
-            self.assertEqual(integer, result)
 ```
 
 ---
@@ -102,25 +93,13 @@ class KnownValues(unittest.TestCase):
 @title[romantest7.py::ToRomanBadInput]
 
 
-## `romantest7.py::ToRomanBadInput`
+`romantest7.py::ToRomanBadInput`
 
 ```python
 class ToRomanBadInput(unittest.TestCase):
     def test_too_large(self):
         '''to_roman should fail with large input'''
         self.assertRaises(roman7.OutOfRangeError, roman7.to_roman, 4000)
-
-    def test_zero(self):
-        '''to_roman should fail with 0 input'''
-        self.assertRaises(roman7.OutOfRangeError, roman7.to_roman, 0)
-
-    def test_negative(self):
-        '''to_roman should fail with negative input'''
-        self.assertRaises(roman7.OutOfRangeError, roman7.to_roman, -1)
-
-    def test_non_integer(self):
-        '''to_roman should fail with non-integer input'''
-        self.assertRaises(roman7.NotIntegerError, roman7.to_roman, 0.5)
 ```
 
 ---
@@ -135,21 +114,6 @@ class FromRomanBadInput(unittest.TestCase):
         '''from_roman should fail with too many repeated numerals'''
         for s in ('MMMM', 'DD', 'CCCC', 'LL', 'XXXX', 'VV', 'IIII'):
             self.assertRaises(roman7.InvalidRomanNumeralError, roman7.from_roman, s)
-
-    def test_repeated_pairs(self):
-        '''from_roman should fail with repeated pairs of numerals'''
-        for s in ('CMCM', 'CDCD', 'XCXC', 'XLXL', 'IXIX', 'IVIV'):
-            self.assertRaises(roman7.InvalidRomanNumeralError, roman7.from_roman, s)
-
-    def test_malformed_antecedents(self):
-        '''from_roman should fail with malformed antecedents'''
-        for s in ('IIMXCC', 'VX', 'DCM', 'CMM', 'IXIV',
-                  'MCMC', 'XCX', 'IVI', 'LM', 'LD', 'LC'):
-            self.assertRaises(roman7.InvalidRomanNumeralError, roman7.from_roman, s)
-
-    def test_non_string(self):
-        '''from_roman should fail with non-string input'''
-        self.assertRaises(roman7.InvalidRomanNumeralError, roman7.from_roman, 1)
 ```
 
 
@@ -168,6 +132,41 @@ class RoundtripCheck(unittest.TestCase):
             result = roman7.from_roman(numeral)
             self.assertEqual(integer, result)
 ```
+
+
+---
+
+@title[How pytest?]
+
+"How can I use pytest instead then?"
+
+
+---
+
+@title[pip install]
+
+```
+pip install pytest
+```
+
+
+---
+
+@title[Run pytest]
+
+```
+pytest romantest7.py
+======================== test session starts ========================
+platform win32 -- Python 3.6.3, pytest-3.3.0, py-1.5.2, pluggy-0.6.0
+rootdir: X:\pytest-for-unittest-users, inifile:
+collected 11 items
+
+romantest7.py ...........                                      [100%]
+
+===================== 11 passed in 0.06 seconds =====================
+```
+
+*Not pictured: colors!*
 
 
 ---
