@@ -979,7 +979,15 @@ Run tests in parallel
 
 ```
 $ pytest -n auto
+======================= test session starts =======================
+platform win32 -- Python 3.6.3, pytest-3.3.1, py-1.5.2, pluggy-0.6.0
+plugins: xdist-1.20.1, forked-0.2, cov-2.5.1
+gw0 [11] / gw1 [11] / gw2 [11] / gw3 [11]
+scheduling tests via LoadScheduling
+...........                                                  [100%]
+==================== 11 passed in 0.60 seconds ====================
 ```
+
 
 
 ---
