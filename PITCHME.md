@@ -431,8 +431,8 @@ Now if I a test needs plotting and VTK...
 
 ![img](https://garyherstein.files.wordpress.com/2016/01/terrified-scream.jpg?w=200)
 
-(PS: a better idea is to use *mixins*)
 
+Does not scale!
 
 ---
 
@@ -441,6 +441,8 @@ Now if I a test needs plotting and VTK...
 functions that create/destroy resources
 
 ---
+
+Back to our `unittest` example
 
 ```python
 class TestAccess(unittest.TestCase):
@@ -460,6 +462,8 @@ class TestAccess(unittest.TestCase):
 ```
 
 ---
+
+Using a `pytest` fixture
 
 ```python
 class TestAccess:
