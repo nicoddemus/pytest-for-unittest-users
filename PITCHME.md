@@ -1149,6 +1149,20 @@ $ py.test --randomly-seed=1234
 
 --- 
 
+## pytest-qt
+
+Test Qt applications (supports PyQt and PySide)
+
+```python
+def test_hello(qtbot):
+    widget = HelloWidget()
+    qtbot.addWidget(widget)
+    qtbot.mouseClick(window.button_greet, QtCore.Qt.LeftButton)
+    assert window.greet_label.text() == 'Hello!'
+```
+
+---
+
 ## pytest-console-scripts
 
 Black box testing for command-line applications
