@@ -406,13 +406,13 @@ OK, but has a few drawbacks:
 
 ---
 
-How to share setup/teardown code between modules? 
+Another issue: how to share setup/teardown code? 
 
 *subclassing*
 
 ---
 
-This gets messy *fast*, specially in large code bases.
+This gets messy *fast*, specially in large code bases
 
 <ul>
 <li class="fragment">`BaseTestCase`: general utilities</li>
@@ -429,10 +429,18 @@ Now if I a test needs plotting and VTK...
 
 `DearLordTestCase(VTKTestCase, PlotTestCase)` 
 
-![img](https://garyherstein.files.wordpress.com/2016/01/terrified-scream.jpg?w=200)
-
+![img](assets/images/terrified-scream.jpg)
 
 Does not scale!
+
+
+---
+
+**Worse**: what if I need some VTK functionality without a GUI?
+
+`BaseVTKTestCase` which is base class for `VTKTestCase` and `BaseTestCase`?
+
+![img](assets/images/scream2.gif)
 
 ---
 
