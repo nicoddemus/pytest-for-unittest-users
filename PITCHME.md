@@ -557,7 +557,7 @@ class TestAccess:
         db_directory = tempfile.mkdtemp()
         db_file = db_directory + '/app.db'        
         get_db().init(db_file)
-        yield db_file
+        yield 
         get_db().disconnect(db_file)
         shutil.rmtree(db_directory) 
               
@@ -580,7 +580,7 @@ class TestAccess:
     def init_db(self):
         db_file = tempfile.mkdtemp() + '/app.db'        
         get_db().init(db_file)
-        yield db_file
+        yield 
         get_db().disconnect(db_file)
         os.remove(db_file) 
                             
