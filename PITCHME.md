@@ -679,6 +679,16 @@ tests/
 
 more importantly: *without changing test code*
 
+```python
+class TestAccess:
+
+    # init_db and session moved to conftest.py 
+                            
+    def test_create_user(self, session):
+        session.create_new_user('Jack')           
+        assert len(session.get_users()) == 1
+```
+
 
 ---
 
