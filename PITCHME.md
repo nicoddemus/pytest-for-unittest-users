@@ -1245,7 +1245,7 @@ plugincompat.herokuapp.com
 
 Google trends: https://goo.gl/qWBNbV
 
-![img](assets/images/trends1.png) 
+![img](assets/images/trends.png) 
 
 ---
 
