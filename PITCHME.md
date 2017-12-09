@@ -700,9 +700,9 @@ pytest has unittest-like methods if you want them
 
 ```python
 class Test:
-    def setup_method(self, method):
+    def setup_method(self):
         ...
-    def teardown_method(self, method):
+    def teardown_method(self):
         ...
         
     @classmethod
