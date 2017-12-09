@@ -880,6 +880,8 @@ def test_windows_console_bug():
     ...
 ```
 
+Similar to `@unittest.skipIf`
+
 ```python
 def test_numpy():
     numpy = pytest.importorskip('numpy')
@@ -902,6 +904,8 @@ def test_array_crash():
 def test_array_crash():
     ...
 ```
+
+Similar to `@unittest.expectedFailure`
 
 ---
 
