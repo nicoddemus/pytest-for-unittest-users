@@ -1147,6 +1147,21 @@ To reproduce a failed run:
 $ py.test --randomly-seed=1234
 ```
 
+--- 
+
+## pytest-console-scripts
+
+Black box testing for command-line applications
+
+```python
+def test_foo_bar(script_runner):
+    ret = script_runner.run('foo', 'bar')
+    assert ret.success
+    assert ret.stdout == 'bar\n'
+    assert ret.stderr == ''
+```
+
+
 ---
 
 😅
