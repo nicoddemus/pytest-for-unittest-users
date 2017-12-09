@@ -1243,6 +1243,16 @@ plugincompat.herokuapp.com
 
 ---
 
+Google trends: https://goo.gl/qWBNbV
+
+![img](assets/images/trends1.png) 
+
+---
+
+![img](assets/images/trends2.png)
+
+---
+
 @title[Thanks]
 
 **That's all!**
