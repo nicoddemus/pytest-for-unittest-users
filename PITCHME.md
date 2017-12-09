@@ -1175,8 +1175,7 @@ Access supporting data files from tests
 
 ```python
 def test_read_module(datadir):
-    with open(datadir['spam.txt']) as fp:
-        contents = fp.read()
+    contents = (datadir / 'spam.txt').read_text()
     assert contents == 'eggs\n'
 ```
 
