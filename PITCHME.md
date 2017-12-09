@@ -636,7 +636,7 @@ class TestAccess:
 
 ---
 
-Sharing setup/teardown across files with `unittest`
+Sharing setup/teardown/utilities across files in `unittest`
 
 A few options 🤔
 
@@ -660,6 +660,9 @@ A few options 🤔
 **Mixins**
 
 Better option I know with `unittest`-based testing
+
+- Usually don't have state
+- Don't have `setUp`/`tearDown`
 
 ---
 
