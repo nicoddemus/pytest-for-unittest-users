@@ -1161,6 +1161,25 @@ def test_foo_bar(script_runner):
     assert ret.stderr == ''
 ```
 
+--- 
+
+## pytest-datadir
+
+Access supporting data files from tests
+
+```
+├── test_hello/
+│   └── spam.txt
+└── test_hello.py
+```
+
+```python
+def test_read_module(datadir):
+    with open(datadir['spam.txt']) as fp:
+        contents = fp.read()
+    assert contents == 'eggs\n'
+```
+
 
 ---
 
