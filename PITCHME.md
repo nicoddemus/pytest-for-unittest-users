@@ -893,15 +893,15 @@ def test_numpy():
 Expected failures (xfail)
 
 ```python
-def test_array_crash():
+def test_array_fails():
     if numpy.__version__ == '1.11.0':
-        pytest.xfail('this tests crashes on numpy 1.11.0')
+        pytest.xfail('this tests fails on numpy 1.11.0')
 ```
 
 ```python
 @pytest.mark.xfail(numpy.__version__ == '1.11.0', 
-                   'this tests crashes on numpy 1.11.0')
-def test_array_crash():
+                   'this tests fails on numpy 1.11.0')
+def test_array_fails():
     ...
 ```
 
