@@ -38,7 +38,7 @@ $ source activate .env
 **Windows**
 
 ```
-$ python -m venv .env
+$ py -3.6 -m venv .env
 $ .env\Scripts\activate.bat
 ```
 
