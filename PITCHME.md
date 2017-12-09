@@ -553,7 +553,7 @@ Using a class-scoped fixture
 class TestAccess:
 
     @pytest.fixture(scope='class')
-    def init_db(cls):
+    def init_db(self):
         db_directory = tempfile.mkdtemp()
         db_file = db_directory + '/app.db'        
         get_db().init(db_file)
@@ -577,7 +577,7 @@ Fixtures can be marked as `autouse`!
 class TestAccess:
 
     @pytest.fixture(scope='class', autouse=True)
-    def init_db(cls):
+    def init_db(self):
         db_file = tempfile.mkdtemp() + '/app.db'        
         get_db().init(db_file)
         yield db_file
@@ -598,7 +598,7 @@ But even better, fixtures can depend on other fixtures
 class TestAccess:
 
     @pytest.fixture(scope='class')
-    def init_db(cls):
+    def init_db(self):
         ...
         
     @pytest.fixture
