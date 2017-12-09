@@ -59,7 +59,7 @@ All set!
 
 ---
 
-# Quick overview
+## Quick overview of the code
 
 ---
 
@@ -237,8 +237,6 @@ pytest lets you write simple `assert` statements
 
 ---
 
-Let's simplify `RoundtripCheck`
-
 change `self.assertEqual` to an `assert` 
 
 ```python
@@ -288,8 +286,6 @@ def test_roundtrip():
 
 --- 
 
-Let's simplify `RoundtripCheck`
-
 Get rid of the class 
 
 ```python
@@ -331,6 +327,11 @@ But works mostly for grouping and is not a requirement!
 Fine to mix pytest-style and unittest-style tests
 
 even in the same file
+
+
+---
+
+Final message: easy to get started, no boilerplate 😁
 
 
 ---
