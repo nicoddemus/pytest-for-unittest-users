@@ -486,7 +486,7 @@ class TestAccess:
         
     def test_create_user(self, session):
         session.create_new_user('Jack')      
-        assert len(self.session.get_users()) == 1     
+        assert len(session.get_users()) == 1     
 ```
 
 *Dependency Injection, baby!*
